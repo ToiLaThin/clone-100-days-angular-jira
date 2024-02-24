@@ -1,11 +1,16 @@
 {
   "name": "clone-100-days-angular-jira",
   "version": "1.0.0",
-  "description": "",
+  "description": "A clone of 100 days of Angular Jira project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install-dependencies": "npm install && cd frontend && npm i",
+    "start:front": "cd frontend && npm start",
+    "build:front": "cd frontend && npm run build",    
+    "test:front": "cd frontend && npm test",
+    "start": "npm run start:front",
+    "build": "npm run build:front"
   },
-  "author": "",
+  "author": "ToiLaThin",
   "license": "ISC"
 }
