@@ -8,24 +8,24 @@ $jira-bg: rgb(222, 235, 255);
 
 .btn {
     @apply text-btn inline-flex items-center justify-center;
-
+    
     &.icon-only {
         @apply px-2;
-
+        
         .with-padding {
             padding: 0;
         }
     }
-
+    
     &.disabled {
         @apply opacity-50 cursor-default pointer-events-none;
     }
-
+    
     &:focus,
     &:active {
         outline-color: #1890ff;
     }
-
+    
     &.no-padding-left {
         padding-left: 0;
     }
@@ -34,28 +34,28 @@ $jira-bg: rgb(222, 235, 255);
 @mixin buttonBackground($btn-variant, $background) {
     $background-dark: darken($background, 10%);
     $background-light: lighten($background, 10%);
-
+    
     .btn-#{$btn-variant} {
         font-weight: 500;
-
+        
         color: white;
         background: $background;
-
+        
         &:disabled {
             cursor: not-allowed;
-
+            
             background-color: lighten($background, 30%);
         }
-
+        
         &:not(:disabled) {
             &:hover {
                 background: $background-light;
             }
-
+            
             &:active {
                 background: $background-dark;
             }
-
+            
             &.active {
                 background: $background-dark !important;
             }
@@ -69,12 +69,12 @@ $jira-bg: rgb(222, 235, 255);
 .btn-secondary {
     background: $secondary;
     @apply text-textDark font-normal;
-
+    
     &:not(:disabled) {
         &:hover {
             @apply bg-backgroundLight;
         }
-
+        
         &:active {
             color: $primary;
             @apply bg-backgroundLightPrimary;
@@ -86,22 +86,22 @@ $jira-bg: rgb(222, 235, 255);
     outline: none;
     background: white;
     @apply text-textDark;
-
+    
     &:focus,
     &:active {
         outline: none;
     }
-
+    
     &:not(:disabled) {
         &:hover {
             @apply bg-backgroundLight;
         }
-
+        
         &:active {
             color: $primary;
             @apply bg-backgroundLightPrimary;
         }
-
+        
         &.is-active {
             background-color: $jira-bg;
             @apply text-textDark;
