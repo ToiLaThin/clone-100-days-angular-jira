@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NzDrawerService } from 'ng-zorro-antd/drawer';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { AddIssueModalComponent } from '../../add-issue-modal/add-issue-modal.component';
+import { JUser } from '../../../../interface/user';
+import { SearchDrawerComponent } from '../../search/search-drawer/search-drawer.component';
 
 type Handler = () => void;
 class NavItem {
@@ -15,6 +17,7 @@ class NavItem {
 })
 export class NavBarLeftComponent implements OnInit {
     items!: NavItem[];
+    currentUser!: JUser;
     constructor(private _drawerService: NzDrawerService, private _modalService: NzModalService) {}
 
     ngOnInit(): void {
@@ -23,6 +26,15 @@ export class NavBarLeftComponent implements OnInit {
             new NavItem('search', 'Search Issue', this.openSearchDrawer.bind(this)), //? why is this binded to openCreateIssueModal, for what?
             new NavItem('plus', 'Create Issue', this.openCreateIssueModal.bind(this)) //?
         ];
+        this.currentUser = {
+            id: '1',
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+            avatarUrl: 'https://gravatar.com/avatar/edb6107ee43142de92e4bfcdc2de4133?s=400&d=robohash&r=x',
+            createdAt: '2021-08-01',
+            updatedAt: '2021-08-01',
+            issueIds: []
+        };
     }
 
     openCreateIssueModal(): void {
@@ -37,7 +49,7 @@ export class NavBarLeftComponent implements OnInit {
     openSearchDrawer(): void {
         this._drawerService.create({
             nzTitle: undefined,
-            nzContent: undefined,
+            nzContent: SearchDrawerComponent,
             nzPlacement: 'left',
             nzClosable: false,
             nzWidth: 500

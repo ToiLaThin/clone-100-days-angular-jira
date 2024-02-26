@@ -16,13 +16,24 @@ import { AddIssueModalComponent } from "./components/add-issue-modal/add-issue-m
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { IssueTypeSelectComponent } from "./components/add-issue-modal/issue-type-select/issue-type-select.component";
 import { IssuePrioritySelectComponent } from "./components/add-issue-modal/issue-priority-select/issue-priority-select.component";
+import { IssueReporterSelectComponent } from "./components/add-issue-modal/issue-reporter-select/issue-reporter-select.component";
+import { UserComponent } from "./components/user/user.component";
+import { IssueAssigneesSelectComponent } from "./components/add-issue-modal/issue-assignees-select/issue-assignees-select.component";
+import { SearchDrawerComponent } from "./components/search/search-drawer/search-drawer.component";
+import { IssueResultComponent } from "./components/search/issue-result/issue-result.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
         NavigationComponent,
         AddIssueModalComponent,
         IssueTypeSelectComponent,
-        IssuePrioritySelectComponent
+        IssuePrioritySelectComponent,
+        IssueReporterSelectComponent,
+        UserComponent,
+        IssueAssigneesSelectComponent,
+
+        SearchDrawerComponent,
+        IssueResultComponent
     ],
     imports: [
         RouterModule.forChild(projectRoutes),
