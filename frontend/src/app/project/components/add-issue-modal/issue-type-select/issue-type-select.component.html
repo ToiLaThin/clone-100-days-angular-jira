@@ -1,0 +1,25 @@
+<nz-select [ngModel]="defaultIssueTypeValue" class="w-full" [formControl]="control" [nzCustomTemplate]="defaultTemplate" (nzOpenChange)="logValueSelected()">
+    <nz-option nzCustomContent 
+               *ngFor="let type of issueTypes" 
+               [nzLabel]="type.value" 
+               [nzValue]="type.icon">
+               <div class="flex items-center">
+                    <svg-icon [name]="type.icon" 
+                            [size]="20">
+                    </svg-icon>
+                    <span class="ml-3 font-semibold uppercase text-textMedium text-13">{{ type.value }}</span>
+               </div>
+
+    </nz-option>
+</nz-select>
+<!-- icon này là name được load lên select để chọn -->
+<ng-template #defaultTemplate let-selected>
+    <!-- Template sẽ được hiển thị sau mỗi select, dựa vào iconSize -->
+    <!-- selected đây là directive của nz-->
+    <div class="flex items-center">
+        <svg-icon [name]="getIssueTypeIcon(selected.nzValue)" 
+                  [size]="24">
+        </svg-icon>
+        <span class="ml-3 font-semibold uppercase text-textMedium text-13">{{ selected.nzValue }}</span>
+    </div>
+</ng-template>

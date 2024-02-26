@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NzDrawerService } from 'ng-zorro-antd/drawer';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { AddIssueModalComponent } from '../../add-issue-modal/add-issue-modal.component';
 
 type Handler = () => void;
 class NavItem {
@@ -19,15 +20,15 @@ export class NavBarLeftComponent implements OnInit {
     ngOnInit(): void {
         this.items = [
             //icon match symbol name in svg definition, tooltip is the text that appears when hovering over the icon
-            new NavItem('search', 'Search Issue', this.openCreateIssueModal.bind(this)), //? why is this binded to openCreateIssueModal, for what?
-            new NavItem('plus', 'Create Issue', this.openSearchDrawer.bind(this)) //?
+            new NavItem('search', 'Search Issue', this.openSearchDrawer.bind(this)), //? why is this binded to openCreateIssueModal, for what?
+            new NavItem('plus', 'Create Issue', this.openCreateIssueModal.bind(this)) //?
         ];
     }
 
     openCreateIssueModal(): void {
         this._modalService.create({
-            nzTitle: 'Create Issue',
-            nzContent: 'CreateIssueComponent',
+            nzContent: AddIssueModalComponent, //the component to be displayed in the modal
+            nzClosable: false,
             nzFooter: null,
             nzWidth: 700
         });

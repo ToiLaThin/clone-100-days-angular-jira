@@ -25,13 +25,48 @@
             </div>
 
             <div *ngFor="let item of this.items" class="item">
-                  <div (click)="item.handler()"
+                  <div (click)="item.handler()" 
                         nz-tooltip 
-                        [nzTooltipTitle]="item.tooltip"
+                        [nzTooltipTitle]="item.tooltip" 
                         nzTooltipPlacement="right"
                         class="itemIcon">
-                        <i class="text-xl text-white" nz-icon [nzType]="item.icon" nzTheme="outline"></i>
+                        <i class="text-xl text-white" 
+                           nz-icon [nzType]="item.icon" 
+                           nzTheme="outline">
+                        </i>
                   </div>
+            </div>
+
+            <div class="flex-auto"></div> 
+            <!-- Will fill up the space in flex container -->
+            <div class="item">
+                  <a nz-popover 
+                     nzPopoverPlacement="rightBottom" 
+                     [nzPopoverContent]="aboutPopoverTmpl"
+                     nzPopoverTrigger="click">
+                        <div nz-tooltip 
+                             nzTooltipTitle="About" 
+                             nzTooltipPlacement="right" 
+                             class="itemIcon" 
+                             nzTooltipTrigger="hover">
+                              <i class="text-xl text-white" 
+                                 nz-icon 
+                                 nzType="question-circle" 
+                                 nzTheme="fill">
+                              </i>
+                        </div>
+                  </a>
             </div>
       </div>
 </aside>
+<ng-template #aboutPopoverTmpl>
+      <div class="about-popover">
+            <p class="mb-2">This is a <strong>simplified</strong> Jira clone built with Angular, NgZorro</p>
+            <p class="mb-2">Thanks a Angular VietNam and trungvose for sharing this project</p>
+            <p class="mb-3">Reach out to me via <a href="thinhnguyen@gmail.com" class="font-semibold"
+                        target="_blank">thinhnguyen&#64;.com</a></p>
+            <a href="https://tryngk18.com/" target="_blank">
+                  <j-button className="btn-primary">Visit author blog</j-button>
+            </a>
+      </div>
+</ng-template>
