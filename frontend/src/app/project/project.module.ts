@@ -7,24 +7,40 @@ import { NzToolTipModule } from "ng-zorro-antd/tooltip";
 import { NzModalModule } from "ng-zorro-antd/modal";
 import { NzDrawerModule } from "ng-zorro-antd/drawer";
 import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 import { BrowserModule } from "@angular/platform-browser";
 import { NZ_JIRA_ICONS } from './config/icons'
+import { JiraControlModule } from "../jira-control/jira-control.module";
+import { AddIssueModalComponent } from "./components/add-issue-modal/add-issue-modal.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { IssueTypeSelectComponent } from "./components/add-issue-modal/issue-type-select/issue-type-select.component";
+import { IssuePrioritySelectComponent } from "./components/add-issue-modal/issue-priority-select/issue-priority-select.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
-        NavigationComponent
+        NavigationComponent,
+        AddIssueModalComponent,
+        IssueTypeSelectComponent,
+        IssuePrioritySelectComponent
     ],
     imports: [
         RouterModule.forChild(projectRoutes),
         BrowserModule, // have ngFor, ngIf, etc
+        ReactiveFormsModule,
+        FormsModule,
+        JiraControlModule,
         NzToolTipModule,
         NzModalModule,
         NzDrawerModule,
-        NzIconModule.forChild(NZ_JIRA_ICONS) // have icons, nzType, nzTheme directive , etc
+        NzPopoverModule,
+        NzIconModule.forChild(NZ_JIRA_ICONS), // have icons, nzType, nzTheme directive , etc
+        NzSelectModule
     ],
     exports: [
         NavBarLeftComponent,
-        NavigationComponent
+        NavigationComponent,
+        AddIssueModalComponent,//only import parent component not select child component
     ]
 })
 export class ProjectModule {
