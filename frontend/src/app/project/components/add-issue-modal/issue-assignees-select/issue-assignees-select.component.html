@@ -1,0 +1,24 @@
+<nz-select class="w-full"
+           [formControl]="control"
+           nzMode="multiple"            
+           [nzCustomTemplate]="assigneesSelectTmpl"
+           [nzNotFoundContent]="noUserFoundTmpl"> 
+           <!-- multiple mode make it tags like -->
+    <nz-option nzCustomContent
+               *ngFor="let user of users"
+               [nzValue]="user.id"
+               [nzLabel]="user.name">
+        <j-user [user]="user">
+        </j-user>
+    </nz-option>
+</nz-select>
+
+<ng-template #assigneesSelectTmpl
+             let-selected>
+    <j-user [user]="getUser(selected.nzValue)!">
+    </j-user>
+</ng-template>
+
+<ng-template #noUserFoundTmpl>
+    No user found.
+</ng-template>

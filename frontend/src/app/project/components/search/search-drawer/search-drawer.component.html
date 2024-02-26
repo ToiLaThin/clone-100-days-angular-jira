@@ -1,0 +1,17 @@
+<div class="mb-10">
+    <j-input [control]="searchControl"
+             containerClassName="flat text-textMedium"
+             icon="search"
+             [iconSize]="26"
+             placeholder="Search issues by summary, description...">
+    </j-input>
+</div>
+<ng-container *ngIf="hasSearchTermInput; else noSearchInputTmpl">
+</ng-container>
+
+<ng-template #noSearchInputTmpl>
+    <div class="section-title">Recent Issue</div>
+    <issue-result *ngFor="let issue of this.recentIssues"
+                   [issue]="issue">
+    </issue-result>
+</ng-template>

@@ -1,3 +1,5 @@
+import { JComment } from "./comment";
+
 export enum IssueType {
     STORY = 'Story',
     TASK = 'Task',
@@ -37,9 +39,9 @@ export const IssuePriorityColors = {
 export interface JIssue {
     id: string;
     title: string;
-    type: string;
-    status: string;
-    priority: number;
+    type: IssueType;
+    status: IssueStatus;
+    priority: IssuePriority;
     listPosition: number;
     description: string;
     estimate: number;
@@ -49,6 +51,6 @@ export interface JIssue {
     updatedAt: string;
     reporterId: string;
     userIds: string[];
-    comment: string;
+    comments: JComment[];
     projectId: string;
 }

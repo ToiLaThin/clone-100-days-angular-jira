@@ -14,15 +14,41 @@
     <form class="issue-form" [formGroup]="issueForm">
         <div class="form-group">
             <label class="label">Issue Type</label>
-            <issue-type-select [control]="$any(this.issueForm.controls['type'])"></issue-type-select>
+            <issue-type-select [control]="$any(this.issueForm.controls['type'])">
+            </issue-type-select>
         </div>
         <div class="form-group mt-3">
             <label class="label">Issue priority</label>
-            <issue-priority-select [control]="$any(this.issueForm.controls['priority'])"></issue-priority-select>
+            <issue-priority-select [control]="$any(this.issueForm.controls['priority'])">
+            </issue-priority-select>
         </div>
         <div class="form-group mt-3">
             <label class="label">Short summary</label>
             <input class="form-input" formControlName="title">
+        </div>
+        <div class="form-group mt-3">
+            <label class="label">Reporter</label>
+            <issue-reporter-select [control]="$any(this.issueForm.controls['reporterId'])" 
+                                   [users]="this.reporterUsers">
+            </issue-reporter-select>
+        </div>
+        <div class="form-group mt-3">
+            <label class="label">Assignees</label>
+            <issue-assignees-select [control]="$any(this.issueForm.controls['userIds'])" 
+                                    [users]="this.assignees">
+            </issue-assignees-select>
+        </div>
+        <div class="form-group mt-5 form-action">
+            <j-button className="btn-primary mr-2"
+                      type="submit"
+                      [disabled]="issueForm?.invalid!"
+                      (click)="submitForm()">
+                Create Issue
+            </j-button>
+            <j-button className="btn-empty"
+                      (click)="cancel()">
+                Cancel
+            </j-button>
         </div>
     </form>
 </div>

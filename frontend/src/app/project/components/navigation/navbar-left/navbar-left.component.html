@@ -39,6 +39,17 @@
 
             <div class="flex-auto"></div> 
             <!-- Will fill up the space in flex container -->
+            <div class="item"
+                 *ngIf="currentUser">
+                 <div nz-tooltip
+                      [nzTooltipTitle]="currentUser.name"  
+                      nzTooltipPlacement="right"
+                      class="itemIcon">
+                      <j-avatar [avatarUrl]="currentUser.avatarUrl"
+                                [size]="26">
+                      </j-avatar>
+                 </div>
+            </div>
             <div class="item">
                   <a nz-popover 
                      nzPopoverPlacement="rightBottom" 
