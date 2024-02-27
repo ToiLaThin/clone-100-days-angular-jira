@@ -1,0 +1,40 @@
+.sidebar {
+    will-change: width;
+    transition: width 300ms cubic-bezier(.2, 0, 1) 0s;
+    @apply h-full relative;
+
+    &-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        min-width: 240px;
+        @apply px-4 bg-backgroundLightest;
+    }
+}
+
+.not-implemented {
+    @apply absolute opacity-0 inline-block rounded bg-backgroundMedium text-textDark uppercase text-xs font-bold;
+    top: 7px;
+    left: 40px;
+    width: 140px;
+    padding: 5px 0 5px 8px;
+}
+.link {
+    @apply flex items-center relative py-2 px-3 rounded-sm text-textDarkest;
+
+    &:hover .not-implemented {
+        @apply opacity-100;
+    }
+
+    &.allowed:hover{ @apply bg-backgroundLight; }
+
+    &.not-allowed { cursor: not-allowed; }
+
+
+}
+
+.divider {
+    @apply mt-4 pt-4 border-t-2 border-borderLight;
+}
