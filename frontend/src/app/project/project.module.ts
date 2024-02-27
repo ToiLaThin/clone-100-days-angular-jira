@@ -21,6 +21,7 @@ import { UserComponent } from "./components/user/user.component";
 import { IssueAssigneesSelectComponent } from "./components/add-issue-modal/issue-assignees-select/issue-assignees-select.component";
 import { SearchDrawerComponent } from "./components/search/search-drawer/search-drawer.component";
 import { IssueResultComponent } from "./components/search/issue-result/issue-result.component";
+import { SideBarComponent } from "./components/navigation/sidebar/sidebar.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -33,7 +34,9 @@ import { IssueResultComponent } from "./components/search/issue-result/issue-res
         IssueAssigneesSelectComponent,
 
         SearchDrawerComponent,
-        IssueResultComponent
+        IssueResultComponent,
+
+        SideBarComponent
     ],
     imports: [
         RouterModule.forChild(projectRoutes),
@@ -49,7 +52,6 @@ import { IssueResultComponent } from "./components/search/issue-result/issue-res
         NzSelectModule
     ],
     exports: [
-        NavBarLeftComponent,
         NavigationComponent,
         AddIssueModalComponent,//only import parent component not select child component
     ]
