@@ -4,6 +4,7 @@ import { JUser } from "./user";
 export interface JProject {
     id: string;
     name: string;
+    url: string;
     description: string;
     category: ProjectCategory;
     createdAt: string;

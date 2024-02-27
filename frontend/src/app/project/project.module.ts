@@ -23,6 +23,8 @@ import { SearchDrawerComponent } from "./components/search/search-drawer/search-
 import { IssueResultComponent } from "./components/search/issue-result/issue-result.component";
 import { SideBarComponent } from "./components/navigation/sidebar/sidebar.component";
 import { ResizerComponent } from "./components/navigation/resizer/resizer.component";
+import { ProjectSettingsComponent } from "./pages/settings/settings.component";
+import { ProjectComponent } from "./project.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -38,7 +40,10 @@ import { ResizerComponent } from "./components/navigation/resizer/resizer.compon
         IssueResultComponent,
 
         SideBarComponent,
-        ResizerComponent
+        ResizerComponent,
+
+        ProjectSettingsComponent,
+        ProjectComponent
     ],
     imports: [
         RouterModule.forChild(projectRoutes),
@@ -55,6 +60,7 @@ import { ResizerComponent } from "./components/navigation/resizer/resizer.compon
     ],
     exports: [
         NavigationComponent,
+        ProjectComponent,
         AddIssueModalComponent,//only import parent component not select child component
     ]
 })
