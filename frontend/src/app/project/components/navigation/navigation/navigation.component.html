@@ -1,6 +1,7 @@
 <div class="navigation">
     <div class="flex flex-row flex-start overflow-hidden h-full">
         <app-navbar-left></app-navbar-left>
-        <app-sidebar></app-sidebar>
+        <app-sidebar [expanded]="this.expanded"></app-sidebar>
     </div>
+    <app-resizer [expanded]="this.expanded" (click)="toggleResize()"></app-resizer>
 </div>

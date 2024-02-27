@@ -1,6 +1,6 @@
 .sidebar {
     will-change: width;
-    transition: width 300ms cubic-bezier(.2, 0, 1) 0s;
+    transition: width 300ms ease-in-out;
     @apply h-full relative;
 
     &-content {
