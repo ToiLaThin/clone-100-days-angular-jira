@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { SideBarLink } from "../../../../interface/ui-model/nav-link";
 import { SideBarLinks } from "../../../config/sidebar";
 import { JProject, ProjectCategory } from "../../../../interface/project";
@@ -11,9 +11,10 @@ import { JProject, ProjectCategory } from "../../../../interface/project";
 export class SideBarComponent implements OnInit{
     sideBarLinks!: SideBarLink[];
     project!: JProject;
+    @Input() expanded!: boolean;
 
     get sideBarWidth(): number {
-        return 240;
+        return this.expanded ? 240 : 15;
     }
     constructor() {}
 

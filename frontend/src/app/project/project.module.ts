@@ -22,6 +22,7 @@ import { IssueAssigneesSelectComponent } from "./components/add-issue-modal/issu
 import { SearchDrawerComponent } from "./components/search/search-drawer/search-drawer.component";
 import { IssueResultComponent } from "./components/search/issue-result/issue-result.component";
 import { SideBarComponent } from "./components/navigation/sidebar/sidebar.component";
+import { ResizerComponent } from "./components/navigation/resizer/resizer.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -36,7 +37,8 @@ import { SideBarComponent } from "./components/navigation/sidebar/sidebar.compon
         SearchDrawerComponent,
         IssueResultComponent,
 
-        SideBarComponent
+        SideBarComponent,
+        ResizerComponent
     ],
     imports: [
         RouterModule.forChild(projectRoutes),

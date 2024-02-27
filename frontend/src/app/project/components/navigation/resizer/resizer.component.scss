@@ -1,0 +1,53 @@
+.sizer-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    width: 24px;
+    transform: translateZ(0);
+
+    &:hover {
+        .sizer .line { opacity: 1; }
+        .btn .icon { color: #4c9aff; }
+    }
+}
+
+.sizer {
+    position: relative;
+    width: 24px;
+    height: 100%;
+    left: -4px;
+    cursor: ew-resize;
+
+    .line {
+        position: absolute;
+        left: 3px;
+        width: 2px;
+        height: 100%;
+        opacity: 0;
+        background-color: #4c9aff;
+        transition: opacity 200ms ease 0s;
+    }
+}
+
+.btn {
+    position: absolute;
+    top: 32px;
+    transform: translate(-50%); //move to the left
+    width: 24px;
+    height: 24px;
+
+    box-shadow: rgba(9, 30, 66, .08) 0px 0px 0px 1px, rgba(9, 30, 66, .08) 0px 2px 4px 1px;
+    background: 0px center white; //without this line background is not visible (transparent) so it's will be overriden by the line
+    border-width: 0px;
+    border-radius: 50%;
+    outline: 0px;
+    padding: 0px;
+    
+    transition: background-color 100ms, linear 0s, color 100ms linear 0s, 
+        opacity 300ms linear, transform 300ms linear;
+    &:hover {
+        background-color: rgb(67, 154, 255);
+        .icon { color: white !important; }
+    }
+}

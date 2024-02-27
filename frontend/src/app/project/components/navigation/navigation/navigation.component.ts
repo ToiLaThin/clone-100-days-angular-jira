@@ -6,5 +6,9 @@ import { Component } from "@angular/core";
     styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
+    expanded: boolean = false;
 
+    toggleResize() {
+        this.expanded = !this.expanded;
+    }
 }
