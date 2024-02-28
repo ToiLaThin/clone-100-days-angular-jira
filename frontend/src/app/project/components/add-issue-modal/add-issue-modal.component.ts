@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, RequiredValidator } from "@angular/forms";
 import { NzModalRef } from "ng-zorro-antd/modal";
 import { IssuePriority, IssueType } from "../../../interface/issue";
 import { JUser } from "../../../interface/user";
+import { DummyDataProvider } from "../../config/dummy_data";
 
 @Component({
     selector: 'app-add-issue-modal',
@@ -21,37 +22,9 @@ export class AddIssueModalComponent implements OnInit{
     ngOnInit(): void {
         this.initForm();
         //mock data
-        this.reporterUsers = [
-            {
-                id: '1',
-                name: 'John Doe',
-                email: 'johndoe@gmail.com',
-                avatarUrl: 'https://gravatar.com/avatar/edb6107ee43142de92e4bfcdc2de4133?s=400&d=robohash&r=x',
-                createdAt: '2021-08-01',
-                updatedAt: '2021-08-01',
-                issueIds: []
-            },
-            {
-                id: '2',
-                name: 'Jane Doe',
-                email: 'janedoe@gmail.com',
-                avatarUrl: 'https://robohash.org/edb6107ee43142de92e4bfcdc2de4133?set=set3&bgset=&size=400x400',
-                createdAt: '2021-08-01',
-                updatedAt: '2021-08-01',
-                issueIds: []
-            },
-            {
-                id: '3',
-                name: 'John Smith',
-                email: 'johnsmith@gmail.com',
-                avatarUrl: 'https://robohash.org/edb6107ee43142de92e4bfcdc2de4133?set=set2&bgset=&size=400x400',
-                createdAt: '2021-08-01',
-                updatedAt: '2021-08-01',
-                issueIds: []
-            }
-        ]
+        this.reporterUsers = DummyDataProvider.Users;
 
-        this.assignees = this.reporterUsers;
+        this.assignees = DummyDataProvider.Users;
     }
     
     // get f(): any{

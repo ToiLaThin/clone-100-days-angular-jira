@@ -14,6 +14,7 @@ import { NZ_JIRA_ICONS } from './config/icons'
 import { JiraControlModule } from "../jira-control/jira-control.module";
 import { AddIssueModalComponent } from "./components/add-issue-modal/add-issue-modal.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { IssueTypeSelectComponent } from "./components/add-issue-modal/issue-type-select/issue-type-select.component";
 import { IssuePrioritySelectComponent } from "./components/add-issue-modal/issue-priority-select/issue-priority-select.component";
 import { IssueReporterSelectComponent } from "./components/add-issue-modal/issue-reporter-select/issue-reporter-select.component";
@@ -27,6 +28,8 @@ import { ProjectSettingsComponent } from "./pages/settings/settings.component";
 import { ProjectComponent } from "./project.component";
 import { BoardComponent } from "./pages/board/board.component";
 import { BoardFilterComponent } from "./components/board/board-filter/board-filter.component";
+import { BoardDndComponent } from "./components/board/board-dnd/board-dnd.component";
+import { BoardDndListComponent } from "./components/board/board-dnd-list/board-dnd-list.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -47,6 +50,8 @@ import { BoardFilterComponent } from "./components/board/board-filter/board-filt
         ProjectSettingsComponent,
         BoardComponent,
         BoardFilterComponent,
+        BoardDndComponent,
+        BoardDndListComponent,
 
         ProjectComponent,
     ],
@@ -61,7 +66,8 @@ import { BoardFilterComponent } from "./components/board/board-filter/board-filt
         NzDrawerModule,
         NzPopoverModule,
         NzIconModule.forChild(NZ_JIRA_ICONS), // have icons, nzType, nzTheme directive , etc
-        NzSelectModule
+        NzSelectModule,
+        DragDropModule, //angular material drag drop cdk
     ],
     exports: [
         NavigationComponent,
