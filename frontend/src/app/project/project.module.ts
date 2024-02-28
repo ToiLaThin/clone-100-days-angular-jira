@@ -25,6 +25,8 @@ import { SideBarComponent } from "./components/navigation/sidebar/sidebar.compon
 import { ResizerComponent } from "./components/navigation/resizer/resizer.component";
 import { ProjectSettingsComponent } from "./pages/settings/settings.component";
 import { ProjectComponent } from "./project.component";
+import { BoardComponent } from "./pages/board/board.component";
+import { BoardFilterComponent } from "./components/board/board-filter/board-filter.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -43,7 +45,10 @@ import { ProjectComponent } from "./project.component";
         ResizerComponent,
 
         ProjectSettingsComponent,
-        ProjectComponent
+        BoardComponent,
+        BoardFilterComponent,
+
+        ProjectComponent,
     ],
     imports: [
         RouterModule.forChild(projectRoutes),

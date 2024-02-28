@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { ProjectComponent } from "./project.component";
 import { ProjectSettingsComponent } from "./pages/settings/settings.component";
+import { BoardComponent } from "./pages/board/board.component";
 
 export const projectRoutes: Routes = [
     {
@@ -10,6 +11,10 @@ export const projectRoutes: Routes = [
             {
                 path: 'settings',
                 component: ProjectSettingsComponent
+            },
+            {
+                path: 'board',
+                component: BoardComponent
             }
         ]
     }

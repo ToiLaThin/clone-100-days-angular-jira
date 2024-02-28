@@ -147,6 +147,12 @@ module.exports = {
       12: '3rem', //48px
       14: '3.5rem', //56px
       16: '4rem', //64px
+      40: '10rem', //160px
+    },
+    boxShadow: {
+      none: 'none',
+      sidebar: '1px 0 0 0 #e6e6e6;',
+      'outline-white': '0 0 0 2px #fff'
     },
     extend: {},
   },
