@@ -30,6 +30,7 @@ import { BoardComponent } from "./pages/board/board.component";
 import { BoardFilterComponent } from "./components/board/board-filter/board-filter.component";
 import { BoardDndComponent } from "./components/board/board-dnd/board-dnd.component";
 import { BoardDndListComponent } from "./components/board/board-dnd-list/board-dnd-list.component";
+import { IssueCardComponent } from "./components/issues/issue-card/issue-card.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -52,6 +53,7 @@ import { BoardDndListComponent } from "./components/board/board-dnd-list/board-d
         BoardFilterComponent,
         BoardDndComponent,
         BoardDndListComponent,
+        IssueCardComponent,
 
         ProjectComponent,
     ],
