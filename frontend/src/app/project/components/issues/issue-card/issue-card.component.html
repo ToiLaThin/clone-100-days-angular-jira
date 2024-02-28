@@ -1,0 +1,43 @@
+<div class="issue-wrap">
+    <div class="issue">
+        <p class="pb-3">{{ issue.title }}</p>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center ml-1">
+                <j-avatar *ngFor="let assignee of assignees"
+                          [className]="'shadow-outline-white -ml-1'"
+                          [size]="24"
+                          nz-tooltip
+                          [nzTooltipMouseEnterDelay]=".3"
+                          nzTooltipTitle="Assignee: {{ assignee.name }}"
+                          nzTooltipPlacement="bottom"
+                          [avatarUrl]="assignee.avatarUrl">
+                </j-avatar>
+                <span [class.ml-3]="assignees?.length" class="uppercase">
+                    {{ issue.type}} - {{ issue.id }}
+                </span>
+            </div>
+
+            <div class="flex items-center">
+                <svg-icon class="mr-1 text-textMedium"
+                          [name]="currentIssueTypeIcon"
+                          nz-tooltip
+                          [nzTooltipMouseEnterDelay]=".3"
+                          [nzTooltipTitle]="issue.type"
+                          nzTooltipPlacement="bottom"
+                          [size]="20">
+
+                </svg-icon>
+                <svg-icon class="mr-1 text-textMedium"
+                          [name]="currentIssuePriorityIcon.icon"
+                          nz-tooltip
+                          [nzTooltipMouseEnterDelay]=".3"
+                          [nzTooltipTitle]="currentIssuePriorityIcon.value"
+                          nzTooltipPlacement="bottom"
+                          [size]="20"
+                          [style.color]="currentIssuePriorityIcon.color">
+
+                </svg-icon>
+            </div>
+        </div>
+    </div>
+</div>
