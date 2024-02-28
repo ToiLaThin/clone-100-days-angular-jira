@@ -1,0 +1,25 @@
+<div class="type-dropdown">
+    <j-button nz-dropdown
+              nzTrigger="click"
+              [nzDropdownMenu]="menu"
+              [icon]="selectedIssueTypeIcon"
+              [iconSize]="20"
+              [className]="'btn-empty font-semibold uppercase text-textMedium text-12'">
+              {{ issue.type }} - {{ issue.id }}
+    </j-button>
+</div>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+        @for (typeOption of issueTypes; track $index) {
+            <li nz-menu-item
+                *ngIf="!isTypeSelected(typeOption.value)">
+                <div class="flex items-center">
+                    <span class="ml-3 font-semibold uppercase text-textMedium text-13">
+                        {{ typeOption.value }}
+                    </span>
+                </div>
+            </li>
+        }
+    </ul>
+</nz-dropdown-menu>
