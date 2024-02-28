@@ -1,0 +1,26 @@
+<div class="w-full h-full">
+    <div class="flex items-center pt-4 text-textDarkest">
+        <issue-type [issue]="issue">
+        </issue-type>
+        <div class="flex-auto"></div>
+        <a target="_blank"
+           href="https://github.com/trungk18/jira-clone-angular/issues/new">
+            <j-button icon="feedback"
+                      className="btn-empty">
+                Give feedback
+            </j-button>
+        </a>
+        <j-button icon="trash" 
+                  [className]="'btn-empty'">
+        </j-button>
+        <j-button icon="expand" 
+                  [iconSize]="24"
+                  [className]="'btn-empty'">
+        </j-button>
+        <j-button icon="times" 
+                  [iconSize]="24"
+                  [className]="'btn-empty'">
+        </j-button>
+
+    </div>
+</div>

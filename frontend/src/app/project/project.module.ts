@@ -9,6 +9,7 @@ import { NzDrawerModule } from "ng-zorro-antd/drawer";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown'
 import { BrowserModule } from "@angular/platform-browser";
 import { NZ_JIRA_ICONS } from './config/icons'
 import { JiraControlModule } from "../jira-control/jira-control.module";
@@ -31,6 +32,9 @@ import { BoardFilterComponent } from "./components/board/board-filter/board-filt
 import { BoardDndComponent } from "./components/board/board-dnd/board-dnd.component";
 import { BoardDndListComponent } from "./components/board/board-dnd-list/board-dnd-list.component";
 import { IssueCardComponent } from "./components/issues/issue-card/issue-card.component";
+import { IssueModalComponent } from "./components/issues/issue-modal/issue-modal.component";
+import { IssueDetailComponent } from "./components/issues/issue-detail/issue-detail.component";
+import { IssueTypeComponent } from "./components/issues/issue-type/issue-type.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -54,7 +58,10 @@ import { IssueCardComponent } from "./components/issues/issue-card/issue-card.co
         BoardDndComponent,
         BoardDndListComponent,
         IssueCardComponent,
-
+        
+        IssueModalComponent,
+        IssueTypeComponent,
+        IssueDetailComponent,
         ProjectComponent,
     ],
     imports: [
@@ -69,6 +76,7 @@ import { IssueCardComponent } from "./components/issues/issue-card/issue-card.co
         NzPopoverModule,
         NzIconModule.forChild(NZ_JIRA_ICONS), // have icons, nzType, nzTheme directive , etc
         NzSelectModule,
+        NzDropDownModule,
         DragDropModule, //angular material drag drop cdk
     ],
     exports: [
