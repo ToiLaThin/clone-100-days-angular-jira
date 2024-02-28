@@ -4,6 +4,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { AddIssueModalComponent } from '../../add-issue-modal/add-issue-modal.component';
 import { JUser } from '../../../../interface/user';
 import { SearchDrawerComponent } from '../../search/search-drawer/search-drawer.component';
+import { DummyDataProvider } from '../../../config/dummy_data';
 
 type Handler = () => void;
 class NavItem {
@@ -26,15 +27,7 @@ export class NavBarLeftComponent implements OnInit {
             new NavItem('search', 'Search Issue', this.openSearchDrawer.bind(this)), //? why is this binded to openCreateIssueModal, for what?
             new NavItem('plus', 'Create Issue', this.openCreateIssueModal.bind(this)) //?
         ];
-        this.currentUser = {
-            id: '1',
-            name: 'John Doe',
-            email: 'johndoe@gmail.com',
-            avatarUrl: 'https://gravatar.com/avatar/edb6107ee43142de92e4bfcdc2de4133?s=400&d=robohash&r=x',
-            createdAt: '2021-08-01',
-            updatedAt: '2021-08-01',
-            issueIds: []
-        };
+        this.currentUser = DummyDataProvider.Users[0];
     }
 
     openCreateIssueModal(): void {
