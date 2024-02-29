@@ -1,3 +1,4 @@
 .navigation {
-    display: flex;
+    display: flex; 
+    //nếu display: block thì app-resizer sẽ position ngay dưới #app-frame(vì không còn là flex), nó đè lên element khác
 }

@@ -13,7 +13,7 @@
 }
 
 .sizer {
-    position: relative;
+    position: relative; //parent of this relative is .sizer-wrap (position absolute)
     width: 24px;
     height: 100%;
     left: -4px;

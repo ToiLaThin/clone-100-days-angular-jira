@@ -1,5 +1,6 @@
 <div class="navigation">
     <div class="flex flex-row flex-start overflow-hidden h-full">
+        <!-- This works because default value of align-items is stretch so app-sidebar take full height when flex-direction: row -->
         <app-navbar-left></app-navbar-left>
         <app-sidebar [expanded]="this.expanded"></app-sidebar>
     </div>
