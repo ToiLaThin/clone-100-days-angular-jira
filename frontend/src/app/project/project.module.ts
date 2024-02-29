@@ -43,6 +43,8 @@ import { IssueAssigneesComponent } from "./components/issues/issue-assignees/iss
 import { IssuePriorityComponent } from "./components/issues/issue-priority/issue-priority.component";
 import { IssueCommentsComponent } from "./components/issues/issue-comments/issue-comments.component";
 import { IssueCommentComponent } from "./components/issues/issue-comment/issue-comment.component";
+import { FullIssueDetailComponent } from "./pages/full-issue-detail/full-issue-detail.component";
+import { CommonModule } from "@angular/common";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -77,11 +79,14 @@ import { IssueCommentComponent } from "./components/issues/issue-comment/issue-c
         IssuePriorityComponent,
         IssueCommentsComponent,
         IssueCommentComponent,
+
+        FullIssueDetailComponent,
+
         ProjectComponent,
     ],
     imports: [
         RouterModule.forChild(projectRoutes),
-        BrowserModule, // have ngFor, ngIf, etc
+        CommonModule,
         ReactiveFormsModule,
         FormsModule,
         JiraControlModule,
