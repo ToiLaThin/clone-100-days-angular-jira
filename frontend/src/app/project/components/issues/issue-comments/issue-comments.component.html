@@ -1,4 +1,8 @@
 
+<issue-comment [issueId]="issue?.id!" 
+               [createMode]="true">
+</issue-comment>
 <issue-comment *ngFor="let comment of issue?.comments" 
-               [comment]="comment">
+               [comment]="comment" 
+               [createMode]="false">
 </issue-comment>
