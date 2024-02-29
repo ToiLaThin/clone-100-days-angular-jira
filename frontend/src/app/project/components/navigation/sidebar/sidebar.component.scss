@@ -7,8 +7,9 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 100%;
+        height: 100%; //100% of the parent (have relative position)
         width: 100%;
+        overflow-y: auto; //this is the important part to cause it to scroll when the content is too big in height
         min-width: 240px;
         @apply px-4 bg-backgroundLightest;
     }
