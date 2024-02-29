@@ -19,8 +19,8 @@ registerLocaleData(en);
     imports: [
         RouterModule.forRoot(routes),
         JiraControlModule,
-        BrowserModule,
-        CommonModule,
+        BrowserModule, //only import once in root module // have ngFor, ngIf, etc
+        CommonModule, //have pipes, etc
         ProjectModule,
         FormsModule,
         HttpClientModule,

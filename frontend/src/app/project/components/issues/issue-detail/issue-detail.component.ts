@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { JIssue } from "../../../../interface/issue";
 import { JUser } from "../../../../interface/user";
 import { DummyDataProvider } from "../../../config/dummy_data";
@@ -10,11 +10,25 @@ import { DummyDataProvider } from "../../../config/dummy_data";
 })
 export class IssueDetailComponent implements OnInit {
     @Input() issue!: JIssue;
+    @Input() isShowCloseButton!: boolean;
+    @Input() isShowFullScreenButton!: boolean;
+    @Output() onOpenedIssueFullDetail = new EventEmitter<string>();
+    @Output() onClosedModal = new EventEmitter();
+
     users!: JUser[];
+
     constructor() {}
 
     ngOnInit(): void {
         this.users = DummyDataProvider.Users;
+    }
+
+    closeModal() {
+        this.onClosedModal.emit();
+    }
+
+    openIssueFullDetail() {
+        this.onOpenedIssueFullDetail.emit(this.issue.id);
     }
 
 }

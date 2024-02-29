@@ -13,13 +13,17 @@
         <j-button icon="trash" 
                   [className]="'btn-empty'">
         </j-button>
-        <j-button icon="expand" 
+        <j-button *ngIf="isShowFullScreenButton"
+                  icon="expand" 
                   [iconSize]="24"
-                  [className]="'btn-empty'">
+                  [className]="'btn-empty'"
+                  (click)="openIssueFullDetail()">
         </j-button>
-        <j-button icon="times" 
+        <j-button *ngIf="isShowCloseButton"
+                  icon="times" 
                   [iconSize]="24"
-                  [className]="'btn-empty'">
+                  [className]="'btn-empty'"
+                  (click)="closeModal()">
         </j-button>
     </div>
     <div class="flex w-full flex-wrap pb-16">
