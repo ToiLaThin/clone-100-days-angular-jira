@@ -52,3 +52,28 @@ form {
         }
     }    
 }
+
+//styling for textarea
+.textarea-inline-control {
+    width: 100%;
+    padding: 7px 7px 8px;
+    border-color: transparent;
+    border-radius: 3px;
+    line-height: 1.28;
+
+    overflow: auto;//turn off the scrollbar
+    overflow-y:hidden;
+    appearance: none;
+    resize: none;
+
+    &:hover:not(:focus) {
+        @apply bg-backgroundLight;
+    }
+
+    &:focus {
+        @apply bg-white;
+        border: 1px solid $blue-border;
+        box-shadow: 0 0 0 1px $blue-border;
+        outline: none;
+    }
+}

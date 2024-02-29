@@ -2,7 +2,7 @@ import { IssuePriority, IssuePriorityColors } from './issue';
 export class IssuePriorityIcon {
     //will get the value of icon , color from the enum priority passedin
     icon!: string;
-    value!: string;
+    value!: IssuePriority;
     color!: string;
 
     constructor(issuePriority: IssuePriority) {

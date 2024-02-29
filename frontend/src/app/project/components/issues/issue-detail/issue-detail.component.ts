@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { JIssue } from "../../../../interface/issue";
+import { JUser } from "../../../../interface/user";
+import { DummyDataProvider } from "../../../config/dummy_data";
 
 @Component({
     selector: 'issue-detail',
@@ -8,11 +10,11 @@ import { JIssue } from "../../../../interface/issue";
 })
 export class IssueDetailComponent implements OnInit {
     @Input() issue!: JIssue;
-
+    users!: JUser[];
     constructor() {}
 
     ngOnInit(): void {
-        console.log(this.issue);
+        this.users = DummyDataProvider.Users;
     }
 
 }

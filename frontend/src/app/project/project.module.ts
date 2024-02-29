@@ -35,6 +35,14 @@ import { IssueCardComponent } from "./components/issues/issue-card/issue-card.co
 import { IssueModalComponent } from "./components/issues/issue-modal/issue-modal.component";
 import { IssueDetailComponent } from "./components/issues/issue-detail/issue-detail.component";
 import { IssueTypeComponent } from "./components/issues/issue-type/issue-type.component";
+import { IssueTitleComponent } from "./components/issues/issue-title/issue-title.component";
+import { TextFieldModule } from "@angular/cdk/text-field";
+import { IssueStatusComponent } from "./components/issues/issue-status/issue-status.component";
+import { IssueReporterComponent } from "./components/issues/issue-reporter/issue-reporter.component";
+import { IssueAssigneesComponent } from "./components/issues/issue-assignees/issue-assignees.component";
+import { IssuePriorityComponent } from "./components/issues/issue-priority/issue-priority.component";
+import { IssueCommentsComponent } from "./components/issues/issue-comments/issue-comments.component";
+import { IssueCommentComponent } from "./components/issues/issue-comment/issue-comment.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -61,7 +69,14 @@ import { IssueTypeComponent } from "./components/issues/issue-type/issue-type.co
         
         IssueModalComponent,
         IssueTypeComponent,
+        IssueTitleComponent,
         IssueDetailComponent,
+        IssueStatusComponent,
+        IssueReporterComponent,
+        IssueAssigneesComponent,
+        IssuePriorityComponent,
+        IssueCommentsComponent,
+        IssueCommentComponent,
         ProjectComponent,
     ],
     imports: [
@@ -78,6 +93,7 @@ import { IssueTypeComponent } from "./components/issues/issue-type/issue-type.co
         NzSelectModule,
         NzDropDownModule,
         DragDropModule, //angular material drag drop cdk
+        TextFieldModule, //for using CdkTextareaAutosize in textarea
     ],
     exports: [
         NavigationComponent,

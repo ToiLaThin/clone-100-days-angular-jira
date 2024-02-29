@@ -60,7 +60,7 @@ export class DummyDataProvider {
             timeRemaining: 0,
             estimate: 5,
             reporterId: '1',
-            userIds: ['1'],
+            userIds: ['1', '2'],
             projectId: '1',
             comments: []
         },
