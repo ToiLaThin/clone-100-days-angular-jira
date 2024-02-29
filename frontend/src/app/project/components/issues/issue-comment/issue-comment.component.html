@@ -1,1 +1,44 @@
-Hello
+<div class="relative mt-3 text-15">
+    <j-avatar class="absolute top-0 left-0"
+              [avatarUrl]="user.avatarUrl"
+              [size]="30">
+    </j-avatar>
+    <div class="pl-10"
+         *ngIf="comment">
+        <div class="inline-block mr-3 mb-2 text-textDark font-medium">
+            {{ comment.user.name }}
+        </div>
+        @if (!createMode) {
+        <div class="inline-block pb-2 text-textDark text-sm">
+            {{ comment.updatedAt | date: 'medium' }}
+        </div>
+        <div [innerHTML]="comment.body"></div>
+        } @else {
+        <div class="editing-erea">
+            <textarea #commentBoxRef
+                      [formControl]="commentControl" 
+                      class="textarea-inline-control textarea-border"
+                      placeholder="Add a comment" 
+                      [rows]="2"
+                      cdkTextareaAutosize
+                      (click)="setCommentEdit(true)">
+            </textarea>            
+            @if (!isEditing) {
+            <div class="text-xs">
+                <strong>Pro tips: </strong> press <span class="px-1 font-semibold bg-backgroundMedium">M</span> to comment.
+            </div>
+            } @else {
+            <div class="flex pt-2 pb-4 items-center">
+                <j-button [className]="'btn btn-primary mr-2'">
+                    Save
+                </j-button>
+                <j-button [className]="'btn btn-empty'"
+                          (click)="cancelAddComment()">
+                    Cancel
+                </j-button>
+            </div>
+            }
+        </div>
+        }
+    </div>
+</div>
