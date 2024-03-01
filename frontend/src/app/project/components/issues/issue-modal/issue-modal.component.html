@@ -1,5 +1,5 @@
 <div class="px-3">
-    <issue-detail [issue]="issue"
+    <issue-detail [issue]="(issueSelected$ | async)!"
                   [isShowCloseButton]="true"
                   [isShowFullScreenButton]="true"
                   (onClosedModal)="closeModal()"

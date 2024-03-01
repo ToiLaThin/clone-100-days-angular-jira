@@ -29,7 +29,8 @@
             </div>
             } @else {
             <div class="flex pt-2 pb-4 items-center">
-                <j-button [className]="'btn btn-primary mr-2'">
+                <j-button [className]="'btn btn-primary mr-2'"
+                          (click)="addComment()">
                     Save
                 </j-button>
                 <j-button [className]="'btn btn-empty'"

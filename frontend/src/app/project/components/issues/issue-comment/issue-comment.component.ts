@@ -3,6 +3,8 @@ import { JComment } from "../../../../interface/comment";
 import { FormControl } from "@angular/forms";
 import { JUser } from "../../../../interface/user";
 import { DummyDataProvider } from "../../../config/dummy_data";
+import { Store } from "@ngrx/store";
+import { projectActions } from "../../../../state/project/project.actions";
 
 @Component({
     selector: 'issue-comment',
@@ -29,7 +31,9 @@ export class IssueCommentComponent implements OnInit {
             this.setCommentEdit(true);
         }
     }
-    constructor() {}
+    constructor(
+        private _store: Store
+    ) {}
 
     ngOnInit(): void {
         this.commentControl = new FormControl('');
@@ -45,6 +49,22 @@ export class IssueCommentComponent implements OnInit {
     setCommentEdit(mode: boolean) {
         this.isEditing = mode;
     }    
+
+    addComment() {
+        const now = new Date();
+        this._store.dispatch(projectActions.upsertCommentToIssue({
+            issueId: this.issueId,
+            commentToUpsert: {
+                ...this.comment,
+                id: `${now.getTime()}`,
+                createdAt: now.toISOString(),
+                updatedAt: now.toISOString(),
+                body: this.commentControl.value
+            }
+        }));
+        this.cancelAddComment()
+    }
+
 
     cancelAddComment() {
         this.commentControl.patchValue('');

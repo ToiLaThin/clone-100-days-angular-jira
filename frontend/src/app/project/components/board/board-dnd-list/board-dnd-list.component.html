@@ -6,7 +6,8 @@
     <div class="h-full px-2"
          cdkDropList
          [cdkDropListData]="(issuesAfterAppliedBoardFilter$ | async)"
-         [id]="status">
+         [id]="status"
+         (cdkDropListDropped)="drop($event)">
         <issue-card *ngFor="let issue of (issuesAfterAppliedBoardFilter$ | async)"
                     [issue]="issue"
                     cdkDrag

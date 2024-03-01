@@ -1,8 +1,11 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Inject, Input, OnInit } from "@angular/core";
 import { NzModalRef } from "ng-zorro-antd/modal";
 import { JIssue } from "../../../../interface/issue";
 import { DummyDataProvider } from "../../../config/dummy_data";
 import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { selectorIssueOfId } from "../../../../state/project/project.selectors";
+import { Observable } from "rxjs";
 
 @Component({
     selector: 'issue-modal',
@@ -10,15 +13,14 @@ import { Router } from "@angular/router";
     styleUrls: ['./issue-modal.component.scss']
 })
 export class IssueModalComponent implements OnInit {
-    issue!: JIssue;
+    issueSelected$!: Observable<JIssue>
     constructor(
         private _modal: NzModalRef,
-        private _router: Router
+        private _router: Router,        
     ) {}
 
     ngOnInit(): void {
-        //use state later, now user mock data
-        this.issue = DummyDataProvider.RecentIssues.find(issue => issue.id === '1')!;
+        this.issueSelected$ = this._modal.getConfig().nzData.issueSelected$;
     }
 
     closeModal() {
