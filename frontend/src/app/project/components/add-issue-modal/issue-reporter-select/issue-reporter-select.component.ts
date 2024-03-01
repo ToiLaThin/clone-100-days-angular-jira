@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { JUser } from "../../../../interface/user";
 
@@ -10,7 +10,6 @@ import { JUser } from "../../../../interface/user";
 export class IssueReporterSelectComponent {
     @Input() control!: FormControl;
     @Input() users!: JUser[]
-    defaultReporterValue: string = '1';
 
     constructor() {}
 

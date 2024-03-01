@@ -1,4 +1,8 @@
-<nz-select [ngModel]="defaultIssueTypeValue" class="w-full" [formControl]="control" [nzCustomTemplate]="defaultTemplate" (nzOpenChange)="logValueSelected()">
+<nz-select [ngModel]="defaultIssueTypeValue" 
+           class="w-full" 
+           [formControl]="control" 
+           [nzCustomTemplate]="defaultTemplate" 
+           (nzOpenChange)="logValueSelected()">
     <nz-option nzCustomContent 
                *ngFor="let type of issueTypes" 
                [nzLabel]="type.value" 
