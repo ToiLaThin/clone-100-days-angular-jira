@@ -8,6 +8,9 @@ import { projectFeatureKey } from "../../../../state/project/project.reducers";
 import { JProject } from "../../../../interface/project";
 import { Observable } from "rxjs";
 import { IProjectState } from "../../../../state/project/projectState.interface";
+import { DeleteIssueModel } from "../../../../interface/ui-model/delete-issue-model";
+import { NzModalService } from "ng-zorro-antd/modal";
+import { IssueDeleteModalComponent } from "../issue-delete-modal/issue-delete-modal.component";
 
 @Component({
     selector: 'issue-detail',
@@ -20,11 +23,16 @@ export class IssueDetailComponent implements OnInit {
     @Input() isShowFullScreenButton!: boolean;
     @Output() onOpenedIssueFullDetail = new EventEmitter<string>();
     @Output() onClosedModal = new EventEmitter();
+    @Output() onDeleteIssueEventEmitter = new EventEmitter<DeleteIssueModel>(); 
+    //pass this output event emitter to the modal component since it does load through service
+    //when modal delete button is clicked, it will emit the event to the parent component of issue-detail (from modal com => this => parent component)
+    //even though we can call store.dispatch directly from the modal component, but it's better to keep the logic in the parent component
 
     users$!: Observable<JUser[]>;
 
     constructor(
-        private _store: Store
+        private _store: Store,
+        private _modalService: NzModalService
     ) {}
 
     ngOnInit(): void {
@@ -37,6 +45,22 @@ export class IssueDetailComponent implements OnInit {
 
     openIssueFullDetail() {
         this.onOpenedIssueFullDetail.emit(this.issue.id);
+    }
+
+    openDeleteIssueModal() {
+        this._modalService.create({
+            nzTitle: undefined,
+            nzContent: IssueDeleteModalComponent,
+            nzFooter: null,
+            nzClosable: false,
+            nzStyle: {
+                top: '20px'
+            },
+            nzData: {
+                issueId: this.issue.id,
+                onDelete: this.onDeleteIssueEventEmitter          
+            }
+        })
     }
 
 }

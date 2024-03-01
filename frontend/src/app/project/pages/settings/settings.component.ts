@@ -3,6 +3,9 @@ import { JProject, ProjectCategory } from "../../../interface/project";
 import { FormBuilder, FormGroup, RequiredValidator } from "@angular/forms";
 import { NzNotificationService } from "ng-zorro-antd/notification";
 import { Router } from "@angular/router";
+import { DummyDataProvider } from "../../config/dummy_data";
+import { Store } from "@ngrx/store";
+import { projectActions } from "../../../state/project/project.actions";
 
 @Component({
     selector: 'app-project-settings',
@@ -17,7 +20,8 @@ export class ProjectSettingsComponent implements OnInit{
     constructor(
         private _fb: FormBuilder,
         private _router: Router,
-        private _notification: NzNotificationService
+        private _notification: NzNotificationService,
+        private _store: Store
     ) {}
 
     ngOnInit(): void {
@@ -28,17 +32,8 @@ export class ProjectSettingsComponent implements OnInit{
             ProjectCategory.MARKETING,
         ]
 
-        this.project = {
-            id: '1',
-            name: 'Clone 100 days angular Jira Clone',
-            url: 'https://github.com/trungk18/jira-clone-angular',
-            description: 'This is a clone of Jira clone project for 100 days angular challenge',
-            category: ProjectCategory.SOFTWARE,
-            createdAt: '2021-08-01',
-            updatedAt: '2021-08-01',
-            issues: [],
-            users: []
-        }
+        //this.project$ = this._store.select...
+        this.project = DummyDataProvider.Project;
         this.updateForm(this.project);
     }
 
@@ -61,7 +56,13 @@ export class ProjectSettingsComponent implements OnInit{
     }
 
     submitForm() {
-        //const formValue: Partial<JProject> = this.projectForm.getRawValue(); //
+        const formValue: Partial<JProject> = this.projectForm.getRawValue(); //
+        this._store.dispatch(projectActions.updateProject({
+            updatedProject: {
+                ...this.project,
+                ...formValue
+            }
+        }));
         //popup in top right corner
         this._notification.create(
             'success', 

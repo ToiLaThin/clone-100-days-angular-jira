@@ -3,6 +3,7 @@
                   [isShowCloseButton]="true"
                   [isShowFullScreenButton]="true"
                   (onClosedModal)="closeModal()"
-                  (onOpenedIssueFullDetail)="openIssuePage($event)">
+                  (onOpenedIssueFullDetail)="openIssuePage($event)"
+                  (onDeleteIssueEventEmitter)="deleteIssue($event)">
     </issue-detail>
 </div>

@@ -14,5 +14,6 @@ export const projectActions = createActionGroup({
         'Update Issue': props<{ updatedIssue: JIssue }>(),       
         
         'Upsert Comment To Issue': props<{ issueId: string, commentToUpsert: JComment }>(),
+        'Delete Issue': props<{ issueId: string }>(),
     }
 })
