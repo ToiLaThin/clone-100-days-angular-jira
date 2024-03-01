@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { projectActions } from "../state/project.actions";
+import { projectActions } from "../state/project/project.actions";
 
 @Component({
     selector: 'app-project',

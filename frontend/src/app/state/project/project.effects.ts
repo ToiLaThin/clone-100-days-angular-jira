@@ -1,7 +1,7 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { projectActions } from './project.actions';
 import { catchError, map, of, switchMap } from 'rxjs';
-import { ProjectService } from '../core/service/project.service';
+import { ProjectService } from '../../core/service/project.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })

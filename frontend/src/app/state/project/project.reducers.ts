@@ -13,11 +13,11 @@ export const projectFeatureKey = "projectFeature";
 export const projectReducer = createReducer(
     initialProjectState,
     on(projectActions.getProject, (state) => ({ ...state})),
-    on(projectActions.getProjectSuccess, (state, action): IProjectState => ({
+    on(projectActions.getProjectSuccess, (state, eventProps): IProjectState => ({
         ...state,
-        project: action.project,
-        issues: action.project.issues,
-        users: action.project.users,
+        project: eventProps.project,
+        issues: eventProps.project.issues,
+        users: eventProps.project.users,
         error: null
     })),
     on(projectActions.getProjectFailure, (state, { error }) => ({

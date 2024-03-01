@@ -6,12 +6,42 @@
              placeholder="Search issues by summary, description...">
     </j-input>
 </div>
-<ng-container *ngIf="hasSearchTermInput; else noSearchInputTmpl">
-</ng-container>
+@if(hasSearchTermInput) {
+    <ng-container [ngTemplateOutlet]="hasSearchTermInputTmpl">
+    </ng-container>
+} @else {
+    <ng-contaner [ngTemplateOutlet]="noSearchInputTmpl">
+    </ng-contaner>
+}
 
 <ng-template #noSearchInputTmpl>
     <div class="section-title">Recent Issue</div>
     <issue-result *ngFor="let issue of this.recentIssues$ | async"
                    [issue]="issue">
     </issue-result>
+</ng-template>
+
+<ng-template #hasSearchTermInputTmpl>
+    <ng-container *ngIf="searchResultIssues$ | async as searchResultIssues">
+    @if (searchResultIssues.length > 0) {
+        <div class="section-title">Issue Result</div>
+        <issue-result *ngFor="let issue of this.searchResultIssues$ | async"
+                        [issue]="issue">
+        </issue-result>
+    } @else {
+        <ng-container [ngTemplateOutlet]="noResultTmpl"></ng-container>
+    }
+    </ng-container>
+</ng-template>
+
+<ng-template #noResultTmpl>
+    <div class="pt-10 flex flex-col justify-center items-center">
+        <svg-icon [name]="'no-result'"
+                  [size]="125">
+        </svg-icon>
+        <div class="pt-8 font-medium text-xl">
+            We counldn't find any issues match your search
+        </div>
+        <div class="pt-2 text-15">Try again with a different term.</div>
+    </div>
 </ng-template>
