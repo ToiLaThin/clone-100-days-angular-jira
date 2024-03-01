@@ -7,7 +7,8 @@
     </form>
 
     <div class="flex flex-row justify-start">
-        <div *ngFor="let user of project.users" 
+        <!-- Because project can be null -->
+        <div *ngFor="let user of ((project$) | async)?.users" 
               class="lift-avatar"
               nz-tooltip
               [nzTooltipPlacement]="'bottom'"
@@ -22,11 +23,13 @@
         </div>
     </div>
     <j-button className="ml-3 btn-empty"
-              [isActive]="false">
+              [isActive]="(this.onlyMyIssue$ | async) === true"
+              (click)="onlyMyIssuesChanged()">
         Only My Issues
     </j-button>
     <j-button className="ml-3 btn-empty"
-              [isActive]="false">
+              [isActive]="(this.ignoreResolved$ | async) === true"
+              (click)="ignoreResolvedChanged()">
         Ignore Resolved
     </j-button>
     <div class="ml-3 flex items-center">

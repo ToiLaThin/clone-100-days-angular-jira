@@ -4,7 +4,7 @@
         <p class="pb-3">{{ issue.title }}</p>
         <div class="flex items-center justify-between">
             <div class="flex items-center ml-1">
-                <j-avatar *ngFor="let assignee of assignees"
+                <j-avatar *ngFor="let assignee of issueAssignees"
                           [className]="'shadow-outline-white -ml-1'"
                           [size]="24"
                           nz-tooltip
@@ -13,7 +13,7 @@
                           nzTooltipPlacement="bottom"
                           [avatarUrl]="assignee.avatarUrl">
                 </j-avatar>
-                <span [class.ml-3]="assignees?.length" class="uppercase">
+                <span [class.ml-3]="issueAssignees?.length" class="uppercase">
                     {{ issue.type}} - {{ issue.id }}
                 </span>
             </div>
