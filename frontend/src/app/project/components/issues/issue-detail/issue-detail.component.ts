@@ -2,6 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { JIssue } from "../../../../interface/issue";
 import { JUser } from "../../../../interface/user";
 import { DummyDataProvider } from "../../../config/dummy_data";
+import { Store } from "@ngrx/store";
+import { selectorUsers } from "../../../../state/project/project.selectors";
+import { projectFeatureKey } from "../../../../state/project/project.reducers";
+import { JProject } from "../../../../interface/project";
+import { Observable } from "rxjs";
+import { IProjectState } from "../../../../state/project/projectState.interface";
 
 @Component({
     selector: 'issue-detail',
@@ -15,12 +21,14 @@ export class IssueDetailComponent implements OnInit {
     @Output() onOpenedIssueFullDetail = new EventEmitter<string>();
     @Output() onClosedModal = new EventEmitter();
 
-    users!: JUser[];
+    users$!: Observable<JUser[]>;
 
-    constructor() {}
+    constructor(
+        private _store: Store
+    ) {}
 
     ngOnInit(): void {
-        this.users = DummyDataProvider.Users;
+        this.users$ = this._store.select(state => selectorUsers(state as {[projectFeatureKey]: IProjectState}))
     }
 
     closeModal() {

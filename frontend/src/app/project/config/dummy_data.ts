@@ -6,10 +6,11 @@ import { JUser } from "../../interface/user";
 export class DummyDataProvider {
     static readonly Users: JUser[] = [
         {
-            id: '1',
-            name: 'John Doe',
+            id: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
+            name: 'Trung Vo',
             email: 'johndoe@gmail.com',
-            avatarUrl: 'https://gravatar.com/avatar/edb6107ee43142de92e4bfcdc2de4133?s=400&d=robohash&r=x',
+            // avatarUrl: 'https://gravatar.com/avatar/edb6107ee43142de92e4bfcdc2de4133?s=400&d=robohash&r=x',
+            avatarUrl: 'https://res.cloudinary.com/dvujyxh7e/image/upload/c_scale,w_48/v1593253478/trung-vo_bioxmc.png',
             createdAt: '2021-08-01',
             updatedAt: '2021-08-01',
             issueIds: []

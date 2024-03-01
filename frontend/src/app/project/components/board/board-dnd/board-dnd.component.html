@@ -1,7 +1,7 @@
 <div class="flex container flex-nowrap mt-7"
      cdkDropListGroup>
         <board-dnd-list *ngFor="let status of issueStatuses"
-                        [issuesSortedFilteredByStatus]="(getIssuesSortedAndFilteredByStatus(status) | async)!"
+                        [issuesSortedFilteredByStatus$]="getIssuesSortedAndFilteredByStatus(status)"
                         [status]="status"
                         class="board-dnd-list">
         </board-dnd-list>

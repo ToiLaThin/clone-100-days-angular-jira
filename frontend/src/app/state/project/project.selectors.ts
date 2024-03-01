@@ -25,4 +25,12 @@ export const selectorSortedIssuesFilterdByStatus = (status: IssueStatus) =>
         return projectState.issues
             .filter((issue) => issue.status === status)
             .sort((a, b) => a.listPosition - b.listPosition);
-    });
+});
+
+export const selectorIssueOfId = (issueId: string) =>
+    createSelector(
+        selectProjectFeature, 
+        (projectState) => {
+        return projectState.issues.find((issue) => issue.id === issueId);
+    }
+);
