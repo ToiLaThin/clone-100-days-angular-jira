@@ -26,10 +26,14 @@ export const projectReducer = createReducer(
         ...state,
         error: error
     })),
-    on(projectActions.updateProject, (state, eventProps)=> ({
-        ...state,
-        project: eventProps.updatedProject
-    })),
+    on(projectActions.updateProject, (state, eventProps) => {
+        console.log('updateProject', eventProps.updatedProject);
+        //but the project redner to UI use dummy data so it's not updated
+        return {
+            ...state,
+            project: eventProps.updatedProject
+        }
+    }),
     on(projectActions.updateIssue, (state, eventProps) => {
         let isIssueExisted: boolean = false;
         let updatedIssues = state.issues.map(issue => {
@@ -75,6 +79,12 @@ export const projectReducer = createReducer(
         return {
             ...state,
             issues: state.issues.map(issue => issue.id === updatedIssue.id ? updatedIssue : issue)
+        }
+    }),
+    on(projectActions.deleteIssue, (state, eventProps) => {
+        return {
+            ...state,
+            issues: state.issues.filter(issue => issue.id !== eventProps.issueId)
         }
     })
 )

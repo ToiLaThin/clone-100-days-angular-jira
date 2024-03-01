@@ -11,7 +11,8 @@
             </j-button>
         </a>
         <j-button icon="trash" 
-                  [className]="'btn-empty'">
+                  [className]="'btn-empty'"
+                  (click)="openDeleteIssueModal()">
         </j-button>
         <j-button *ngIf="isShowFullScreenButton"
                   icon="expand" 
@@ -53,10 +54,10 @@
             <issue-priority [issue]="issue"></issue-priority>
             <div class="mt-3 pt-3 leading-loose border-t border-borderLightest text-textMedium text-13">
                 <div>
-                    Created - {{ issue.createdAt | date:"medium"}} 
+                    Created - {{ issue.createdAt! | date:"medium"}} 
                 </div>
                 <div>
-                    Updated - {{ issue.updatedAt | date:"medium"}} 
+                    Updated - {{ issue.updatedAt! | date:"medium"}} 
                 </div>
             </div>
         </div>

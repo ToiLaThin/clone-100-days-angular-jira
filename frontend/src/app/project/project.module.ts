@@ -45,6 +45,7 @@ import { IssueCommentsComponent } from "./components/issues/issue-comments/issue
 import { IssueCommentComponent } from "./components/issues/issue-comment/issue-comment.component";
 import { FullIssueDetailComponent } from "./pages/full-issue-detail/full-issue-detail.component";
 import { CommonModule } from "@angular/common";
+import { IssueDeleteModalComponent } from "./components/issues/issue-delete-modal/issue-delete-modal.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -79,6 +80,7 @@ import { CommonModule } from "@angular/common";
         IssuePriorityComponent,
         IssueCommentsComponent,
         IssueCommentComponent,
+        IssueDeleteModalComponent,
 
         FullIssueDetailComponent,
 
