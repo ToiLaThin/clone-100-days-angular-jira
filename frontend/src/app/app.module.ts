@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { projectFeatureKey, projectReducer } from "./state/project.reducers";
+import { ProjectEffects } from "./state/project.effects";
 registerLocaleData(en);
 
 @NgModule({
@@ -29,8 +31,9 @@ registerLocaleData(en);
         HttpClientModule,
         BrowserAnimationsModule,
         StoreModule.forRoot({
+          [projectFeatureKey]: projectReducer
         }),
-        EffectsModule.forRoot([]),
+        EffectsModule.forRoot([ProjectEffects]),
         StoreDevtoolsModule.instrument({
           maxAge: 25, 
           logOnly: !isDevMode(),

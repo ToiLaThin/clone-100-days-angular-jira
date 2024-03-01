@@ -11,7 +11,7 @@
 
 <ng-template #noSearchInputTmpl>
     <div class="section-title">Recent Issue</div>
-    <issue-result *ngFor="let issue of this.recentIssues"
+    <issue-result *ngFor="let issue of this.recentIssues$ | async"
                    [issue]="issue">
     </issue-result>
 </ng-template>
