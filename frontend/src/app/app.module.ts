@@ -15,8 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-import { projectFeatureKey, projectReducer } from "./state/project.reducers";
-import { ProjectEffects } from "./state/project.effects";
+import { projectFeatureKey, projectReducer } from "./state/project/project.reducers";
+import { ProjectEffects } from "./state/project/project.effects";
+import { filterFeatureKey, filterReducer } from "./state/filter/filter.reducers";
 registerLocaleData(en);
 
 @NgModule({
@@ -31,7 +32,8 @@ registerLocaleData(en);
         HttpClientModule,
         BrowserAnimationsModule,
         StoreModule.forRoot({
-          [projectFeatureKey]: projectReducer
+          [projectFeatureKey]: projectReducer,
+          [filterFeatureKey]: filterReducer
         }),
         EffectsModule.forRoot([ProjectEffects]),
         StoreDevtoolsModule.instrument({
