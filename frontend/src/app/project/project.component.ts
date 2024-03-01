@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { projectActions } from "../state/project.actions";
 
 @Component({
     selector: 'app-project',
@@ -7,11 +9,14 @@ import { Component, OnInit } from "@angular/core";
 })
 export class ProjectComponent implements OnInit {
     expanded!: boolean;
-    constructor() {}
+    constructor(
+        private _store: Store
+    ) {}
 
     ngOnInit(): void {
         this.expanded = false;
         this.handleResize();
+        this._store.dispatch(projectActions.getProject());
     }    
 
     private handleResize() {
