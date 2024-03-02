@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { IssueStatus, JIssue } from "../../../../interface/issue";
 import { IssueStatusDisplay } from './../../../../interface/issue';
+import { Store } from "@ngrx/store";
+import { projectActions } from "../../../../state/project/project.actions";
 
 @Component({
     selector: 'issue-status',
@@ -8,7 +10,7 @@ import { IssueStatusDisplay } from './../../../../interface/issue';
     styleUrls: ['./issue-status.component.scss']
 
 })
-export class IssueStatusComponent implements OnInit {
+export class IssueStatusComponent implements OnInit, OnChanges {
     
     @Input() issue!: JIssue;
     IssueStatusDisplay = IssueStatusDisplay; //map
@@ -20,7 +22,16 @@ export class IssueStatusComponent implements OnInit {
     }
     issueStatusTitles!: IssueStatusValueTitle[];
 
-    constructor() {        
+    constructor(
+        private _store: Store
+    ) {}
+
+    //not needed since the issue state is updated will update issue input thus update ui
+    ngOnChanges(changes: SimpleChanges): void {
+        // const issueChanged = changes['issue'];
+        // if (issueChanged.currentValue !== issueChanged.previousValue) {
+        //     this.issue = issueChanged.currentValue;
+        // }
     }
 
     ngOnInit(): void {
@@ -34,6 +45,12 @@ export class IssueStatusComponent implements OnInit {
 
     isStatusSelected(issueStatus: IssueStatus) {
         return this.issue.status === issueStatus;
+    }
+
+    updateIssue(statusOptionSelected: IssueStatus) {
+        this._store.dispatch(projectActions.updateIssue({
+            updatedIssue: { ...this.issue, status: statusOptionSelected }
+        }))
     }
 }
 

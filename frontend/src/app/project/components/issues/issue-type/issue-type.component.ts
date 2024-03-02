@@ -3,6 +3,8 @@ import { IssueType, JIssue } from "../../../../interface/issue";
 import { IssueUtil } from "../../../utils/issue";
 import { IssueTypeWithIcon } from "../../../../interface/issue-type-icon";
 import { ProjectConst } from "../../../config/const";
+import { Store } from "@ngrx/store";
+import { projectActions } from "../../../../state/project/project.actions";
 
 @Component({
     selector: 'issue-type',
@@ -16,14 +18,22 @@ export class IssueTypeComponent implements OnInit {
         return IssueUtil.getIssueTypeIcon(this.issue.type);
     }
 
-    constructor() {
-    }
+    constructor(
+        private _store: Store
+    ) {}
 
+    //no need to use ngOnChanges since selectedIssueTypeIcon is a getter and will be updated when issue changes
     ngOnInit(): void {
         this.issueTypes = ProjectConst.IssueTypesWithIcon;
     }
 
     isTypeSelected(type: IssueType) {
         return this.issue.type == type;
+    }
+
+    updateIssue(typeOptionSelected: IssueType) {
+        this._store.dispatch(projectActions.updateIssue({
+            updatedIssue: { ...this.issue, type: typeOptionSelected }
+        }))
     }
 }
