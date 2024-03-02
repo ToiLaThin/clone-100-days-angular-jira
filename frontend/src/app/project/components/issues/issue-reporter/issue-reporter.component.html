@@ -14,7 +14,8 @@
         nzNoAnimation>
         @for (reporterOption of users; track $index) {
             <li nz-menu-item
-                *ngIf="!isUserSelected(reporterOption)">
+                *ngIf="!isUserSelected(reporterOption)"
+                (click)="updateIssue(reporterOption)">
                 <j-user [user]="reporterOption">
                 </j-user>
             </li>

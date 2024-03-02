@@ -19,7 +19,8 @@
         nzNoAnimation>
         @for (priorityWIconOption of allPrioritiesWIcon; track $index) {
             <li nz-menu-item
-                *ngIf="!isPrioritySelected(priorityWIconOption.value)">
+                *ngIf="!isPrioritySelected(priorityWIconOption.value)"
+                (click)="updateIssue(priorityWIconOption.value)">
                 <div class="flex items-center">
                     <svg-icon [name]="priorityWIconOption.icon"
                               [size]="20"

@@ -13,7 +13,8 @@
     <ul nz-menu>
         @for (typeOption of issueTypes; track $index) {
             <li nz-menu-item
-                *ngIf="!isTypeSelected(typeOption.value)">
+                *ngIf="!isTypeSelected(typeOption.value)"
+                (click)="updateIssue(typeOption.value)">
                 <div class="flex items-center">
                     <span class="ml-3 font-semibold uppercase text-textMedium text-13">
                         {{ typeOption.value }}
