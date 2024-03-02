@@ -11,6 +11,7 @@ import { IProjectState } from "../../../state/project/projectState.interface";
 import { Observable, tap } from "rxjs";
 import { IssueUtil } from "../../utils/issue";
 import { projectActions } from "../../../state/project/project.actions";
+import { quillConfiguration } from "../../config/editor";
 
 @Component({
     selector: 'app-add-issue-modal',
@@ -21,6 +22,7 @@ export class AddIssueModalComponent implements OnInit{
     issueForm!: FormGroup;
     reporterUsers$!: Observable<JUser[]>;
     assignees$!: Observable<JUser[]>;
+    editorOptions = quillConfiguration
     constructor(
         private _fb: FormBuilder,
         private _modalRef: NzModalRef,

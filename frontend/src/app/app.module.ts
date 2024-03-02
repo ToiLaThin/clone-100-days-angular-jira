@@ -18,6 +18,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { projectFeatureKey, projectReducer } from "./state/project/project.reducers";
 import { ProjectEffects } from "./state/project/project.effects";
 import { filterFeatureKey, filterReducer } from "./state/filter/filter.reducers";
+import { QuillModule } from "ngx-quill";
 registerLocaleData(en);
 
 @NgModule({
@@ -41,7 +42,8 @@ registerLocaleData(en);
           logOnly: !isDevMode(),
           autoPause: true,
           traceLimit: 25
-        })
+        }),
+        QuillModule.forRoot()
     ],
     bootstrap: [AppComponent],
     providers: [

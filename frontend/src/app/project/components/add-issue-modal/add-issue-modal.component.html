@@ -23,17 +23,34 @@
             </issue-priority-select>
         </div>
         <div class="form-group mt-3">
-            <label class="label">Short summary</label>
+            <label class="label">
+                Short summary
+            </label>
             <input class="form-input" formControlName="title">
         </div>
+        <div class="mt-3 form-group">
+            <label class="label">
+                Description
+            </label>
+            <quill-editor class="content-editor"
+                          [styles]="{'min-height': '120px'}"
+                          [modules]="editorOptions"
+                          formControlName="description"
+                          placeholder="">
+            </quill-editor>
+        </div>
         <div class="form-group mt-3">
-            <label class="label">Reporter</label>
+            <label class="label">
+                Reporter
+            </label>
             <issue-reporter-select [control]="$any(this.issueForm.controls['reporterId'])" 
                                    [users]="(this.reporterUsers$ | async)!">
             </issue-reporter-select>
         </div>
         <div class="form-group mt-3">
-            <label class="label">Assignees</label>
+            <label class="label">
+                Assignees
+            </label>
             <issue-assignees-select [control]="$any(this.issueForm.controls['userIds'])" 
                                     [users]="(this.assignees$ | async)!">
             </issue-assignees-select>

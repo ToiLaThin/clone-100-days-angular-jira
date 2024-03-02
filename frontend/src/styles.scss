@@ -2,3 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+//find out '~quill/dist/quill.core.css' means
+//this must  have for editor to have style
+@import 'quill/dist/quill.core.css'; 
+@import 'quill/dist/quill.snow.css';

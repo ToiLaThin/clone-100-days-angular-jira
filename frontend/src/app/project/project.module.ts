@@ -46,6 +46,8 @@ import { IssueCommentComponent } from "./components/issues/issue-comment/issue-c
 import { FullIssueDetailComponent } from "./pages/full-issue-detail/full-issue-detail.component";
 import { CommonModule } from "@angular/common";
 import { IssueDeleteModalComponent } from "./components/issues/issue-delete-modal/issue-delete-modal.component";
+import { QuillModule } from "ngx-quill";
+import { IssueDescriptionComponent } from "./components/issues/issue-description/issue-description.component";
 @NgModule({
     declarations: [
         NavBarLeftComponent,
@@ -80,6 +82,7 @@ import { IssueDeleteModalComponent } from "./components/issues/issue-delete-moda
         IssuePriorityComponent,
         IssueCommentsComponent,
         IssueCommentComponent,
+        IssueDescriptionComponent,
         IssueDeleteModalComponent,
 
         FullIssueDetailComponent,
@@ -101,6 +104,7 @@ import { IssueDeleteModalComponent } from "./components/issues/issue-delete-moda
         NzDropDownModule,
         DragDropModule, //angular material drag drop cdk
         TextFieldModule, //for using CdkTextareaAutosize in textarea
+        QuillModule
     ],
     exports: [
         NavigationComponent,
