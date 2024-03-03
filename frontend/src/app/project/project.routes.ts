@@ -20,6 +20,11 @@ export const projectRoutes: Routes = [
             {
                 path: 'issue/:id',
                 component: FullIssueDetailComponent
+            },
+            {
+                path: '',
+                redirectTo: 'board',
+                pathMatch: 'full'
             }
         ]
     }
