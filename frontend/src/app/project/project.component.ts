@@ -27,4 +27,8 @@ export class ProjectComponent implements OnInit {
             console.log(this.expanded);
         });
     }
+
+    manualExpand() {
+        this.expanded = !this.expanded;
+    }
 }

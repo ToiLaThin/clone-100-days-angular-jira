@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
     selector: 'app-navigation',
@@ -7,8 +7,9 @@ import { Component, Input } from "@angular/core";
 })
 export class NavigationComponent {
     @Input() expanded!: boolean;
+    @Output() expandedManualChanged = new EventEmitter();
 
     toggleResize() {
-        this.expanded = !this.expanded;
+        this.expandedManualChanged.emit();
     }
 }
